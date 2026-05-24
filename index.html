@@ -447,7 +447,7 @@
 
     <!-- ready card -->
     <div class="ready-card">
-      <p class="ready-eyebrow">Order complete</p>
+      <p class="ready-eyebrow">Order complete · <span id="order-display"></span></p>
       <h1 class="ready-headline">Your scans are ready,</h1>
       <p class="ready-name"><!-- CUSTOMER NAME -->Name<!-- /CUSTOMER NAME --></p>
       <p class="ready-sub"><!-- FILM INFO -->Portra 400 · 35mm · 36 exp<!-- /FILM INFO --></p>
@@ -549,10 +549,14 @@
   <script>
     (function() {
       const params = new URLSearchParams(window.location.search);
+      const order = params.get('order');
       const name = params.get('name');
       const film = params.get('film');
       const link = params.get('link');
 
+      if (order) {
+        document.getElementById('order-display').textContent = order;
+      }
       if (name) {
         document.querySelector('.ready-name').textContent = name;
       }
