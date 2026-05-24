@@ -545,5 +545,25 @@
 
   </div>
 
+
+  <script>
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      const name = params.get('name');
+      const film = params.get('film');
+      const link = params.get('link');
+
+      if (name) {
+        document.querySelector('.ready-name').textContent = name;
+      }
+      if (film) {
+        document.querySelector('.ready-sub').textContent = film;
+      }
+      if (link) {
+        document.querySelector('.btn-download').href = decodeURIComponent(link);
+      }
+    })();
+  </script>
+
 </body>
 </html>
